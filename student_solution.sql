@@ -1,5 +1,8 @@
-CREATE DATABASE CollegeDB;
+CREATE DATABASE IF NOT EXISTS CollegeDB;
 USE CollegeDB;
+
+DROP TABLE IF EXISTS Enrollment;
+DROP TABLE IF EXISTS Course;
 
 CREATE TABLE Course (
     CourseID INT PRIMARY KEY,
@@ -26,7 +29,6 @@ VALUES
 (3, 1002, 203),
 (4, 1003, 201);
 
--- LEFT JOIN
 SELECT Course.CourseID,
        Course.CourseName,
        Enrollment.EnrollmentID,
@@ -35,7 +37,6 @@ FROM Course
 LEFT JOIN Enrollment
 ON Course.CourseID = Enrollment.CourseID;
 
--- RIGHT JOIN
 SELECT Course.CourseID,
        Course.CourseName,
        Enrollment.EnrollmentID,
